@@ -1,0 +1,464 @@
+{
+	"info": {
+		"_postman_id": "bfef2cb4-81d7-482a-8583-3697755a30a1",
+		"name": "PAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "278180d3-0c6a-47b8-804a-82d193380f7a",
+						"exec": [
+							"if (pm.response.code === 200) {",
+							"    pm.environment.set('authToken', pm.response.json().token)",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"zz@abv.bg\",\n\t\"password\": \"123!@#qweASD\",\n\t\"firstName\": \"zz\",\n\t\"lastName\": \"zz\",\n\t\"nickName\": \"zzz\",\n\t\"repeatedPass\": \"123!@#qweASD\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Provacy Policy Confirmation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "19b49b1e-dbb7-4174-a1cd-fc97958319cd",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "46e08eaf-15a3-4e32-a15d-d56e49fa53b1",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"privacy\": \"true\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/privacyPolicyConfirmation",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"privacyPolicyConfirmation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Terms Confirmation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"terms\": \"true\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/termsConfirmation",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"termsConfirmation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cookie Confirmation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cookies\": \"true\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/cookiesConfirmation",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cookiesConfirmation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LogOut",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LogOut All",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/logoutAll",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"logoutAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Profile with password",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"zz@abv.bg\",\n\t\"password\": \"123!@#qweASD4\",\n\t\"firstName\": \"zzUPDATEDWithPassword\",\n\t\"lastName\": \"zzUPDATEDWithPassword\",\n\t\"nickName\": \"zzzUPDATEDWithPassword\",\n\t\"repeatedPass\": \"123!@#qweASD4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/updateUserProfile",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"updateUserProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Profile without password",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"zz@abv.bg\",\n\t\"firstName\": \"zzUPDATEDWithoutPassword\",\n\t\"lastName\": \"zzUPDATEDWithoutPassword\",\n\t\"nickName\": \"zzzUPDATEDWithoutPassword\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/updateUserProfile",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"updateUserProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User Account",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/delete",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Forgot Password Page",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"zz@abv.bg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/forgotPassword",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"forgotPassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset Password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"newPassword\": \"123!@#qweASD6\",\n\t\"repeatedNewPass\": \"123!@#qweASD6\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/resetPassword",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"resetPassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Redirect To Reset Password",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}//redirectToResetPassword/{{authToken}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"",
+						"redirectToResetPassword",
+						"{{authToken}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Redirect To Privacy Policy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}//redirectToPrivacyPolicy/{{authToken}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"",
+						"redirectToPrivacyPolicy",
+						"{{authToken}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "951cf76a-6645-4707-aed9-c2597f35d1d2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3cf9b41e-beb3-4a20-95b0-cde28ea954a3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

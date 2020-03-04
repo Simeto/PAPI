@@ -1,0 +1,7 @@
+// -*- mode: json5; tab-width: 2; indent-tabs-mode: nil -*-
+{
+  nmhost: 'smtp.ethereal.email',
+  nmport: 587,
+  nmuser: 'isadore.jakubowski@ethereal.email',
+  nmpass: 'pkC7cpzGdg2nF3aMbv'
+}

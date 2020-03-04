@@ -1,0 +1,14 @@
+// -*- mode: json5; tab-width: 2; indent-tabs-mode: nil -*-
+{
+  /**
+   * http port, the server is started on
+   * @type {Number}
+   */
+  port: 4000,
+
+  /**
+   * wether or not to log anything
+   * @type {Boolean}
+   */
+  logEnabled: false
+}

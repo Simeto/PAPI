@@ -1,0 +1,46 @@
+// -*- mode: json5; tab-width: 2; indent-tabs-mode: nil -*-
+{
+  /**
+   * http port, the server is started on
+   * @type {Number}
+   */
+  port: 5050,
+  baseUrl: 'http://localhost:5050',
+  /**
+   * loglevel could be any of fatal, error, warn, info, debug, trace
+   * @type {String}
+   */
+  loglevel: "info",
+
+  /**
+   * wether or not to log anything
+   * @type {Boolean}
+   */
+  logEnabled: true,
+
+  /**
+   * wether cors is enabled or not
+   * @type {Boolean}
+   */
+  cors: false,
+
+  /**
+   * base path of URL all api routes will get namespaced to
+   * @type {String}
+   */
+  apiBasePath: "/",
+
+
+  /**
+   * wether or not to log pretty
+   * @type {Boolean}
+   */
+  logPretty: false,
+  confirmationTime: 1000,
+  mongoose: "mongodb://localhost:27017/papi",
+
+  JWT_KEY: 'MyVerySecretPAPIKey',
+
+  UIPath: 'http://localhost:8080',
+
+}

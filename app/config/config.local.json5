@@ -1,0 +1,16 @@
+// -*- mode: json5; tab-width: 2; indent-tabs-mode: nil -*-
+{
+  /**
+   * loglevel overwrite for current env
+   * @type {String}
+   */
+  loglevel: 'debug',
+
+  /**
+   * wether cors is enabled or not
+   * @type {Boolean}
+   */
+  cors: true,
+
+  mongoose: "mongodb://localhost/papi"
+}

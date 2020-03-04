@@ -1,0 +1,83 @@
+{
+  "name": "papi",
+  "version": "1.0.0",
+  "description": "Primary API",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./app/index.js",
+    "restart": "pm2 startOrRestart package.json --env dev",
+    "reload": "pm2 reload package.json --env dev",
+    "stop": "pm2 delete cba-cms-api",
+    "logs": "pm2 logs cba-cms-api --raw | pino",
+    "fix": "pretty-quick",
+    "lint": "eslint .",
+    "precommit": "pretty-quick --staged",
+    "deploy": "pm2 deploy package.json stage",
+    "deploy-setup": "pm2 deploy package.json stage setup",
+    "test": "mocha",
+    "test-coverage": "nyc --report-dir=coverage mocha"
+  },
+  "author": "S.Stanimirov",
+  "license": "MIT",
+  "private": true,
+  "apps": [
+    {
+      "name": "papi",
+      "script": "app/index.js",
+      "merge_logs": true,
+      "ignore_watch": [
+        "README.md",
+        ".git",
+        ".idea",
+        ".nyc_output",
+        "coverage",
+        "content",
+        "app/*.pid"
+      ],
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "env_stage": {
+        "NODE_ENV": "production"
+      },
+      "env_dev": {
+        "NODE_ENV": "development"
+      }
+    }
+  ],
+  "devDependencies": {
+    "bcrypt": "^3.0.6",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "password-blacklist": "^1.1.1",
+    "password-validator": "^4.1.2",
+    "pm2": "^2.10.4",
+    "prettier": "^1.12.1",
+    "prettier-eslint": "^8.8.1",
+    "pretty-quick": "^1.6.0",
+    "shortid": "^2.2.14"
+  },
+  "dependencies": {
+    "app-module-path": "^2.2.0",
+    "body-parser": "^1.18.3",
+    "commander": "^2.15.1",
+    "config-extend": "^0.1.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "json5": "^1.0.1",
+    "mongoose": "^5.4.1",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.2",
+    "nodemon": "^1.19.0",
+    "pino": "^4.16.1",
+    "sharp": "^0.24.0",
+    "uuid": "^3.3.2",
+    "validator": "^12.2.0"
+  }
+}
