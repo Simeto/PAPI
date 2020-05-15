@@ -21,10 +21,10 @@ module.exports = base => {
   let config = {}
 
   /* istanbul ignore next */
-  if (process.env.NODE_ENV === 'test') {
-    corePattern = `${base}/+(config.json5|config.test.json5)`
-    ignorePattern = `${base}/+(config.*|*.local.json5)`
-  }
+  // if (process.env.NODE_ENV === 'test') {
+  //   corePattern = `${base}/+(config.json5|config.test.json5)`
+  //   ignorePattern = `${base}/+(config.*|*.local.json5)`
+  // }
 
   // 1st load core config
   glob.sync(corePattern, { cwd }).forEach(f => {

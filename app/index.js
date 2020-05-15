@@ -19,9 +19,7 @@ const app = {
 }
 app.root = __dirname
 app.config = config('config')
-app.config.mail = config('config.mail')
 app.log = log(app)
-app.services = loader(app, 'services')
 app.mongoose = mongoose(app)
 app.schemas = loader(app, 'schemas')
 app.models = loader(app, 'models')
